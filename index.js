@@ -1,9 +1,9 @@
 const express = require("express")
 const app = express()
 const connection = require('./database/database')
-const perguntaModel = require('./database/Pergunta')
-//Database
+const Pergunta = require('./database/Pergunta')
 
+//Database
 connection
     .authenticate()
     .then(() => {
@@ -20,7 +20,31 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 app.get('/', (req, res) => {
-    res.render('index')
+    Pergunta.findAll({
+        order: [
+            ['id', 'DESC']
+        ]
+    }).then(perguntas => {
+        res.render("index", {
+            perguntas: perguntas
+        })
+    })
+})
+
+app.get('/pergunta/:id', (req, res) => {
+    let id = req.params.id
+    Pergunta.findOne({
+        where: { id: id }
+    }).then(pergunta => {
+        if (pergunta != undefined) {
+            res.render('pergunta', {
+                pergunta: pergunta
+            })
+        } else {
+            res.redirect('/')
+        }
+    })
+
 })
 
 app.get('/perguntar', (req, res) => {
@@ -30,7 +54,12 @@ app.get('/perguntar', (req, res) => {
 app.post('/salvarpergunta', (req, res) => {
     var titulo = req.body.titulo
     var descricao = req.body.descricao
-    res.send(titulo + descricao)
+    Pergunta.create({
+        titulo: titulo,
+        descricao: descricao
+    }).then(() => {
+        res.redirect('/')
+    })
 })
 
 app.listen(4000, console.log('Server em execução'))

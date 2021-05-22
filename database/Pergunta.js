@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize')
-const connection = require ('./database')
+const connection = require('./database')
 
 const Pergunta = connection.define('perguntas', {
     titulo: {
@@ -12,5 +12,7 @@ const Pergunta = connection.define('perguntas', {
     }
 })
 
-Pergunta.sync({force: false})
-    .then(() => {})
+Pergunta.sync({ force: false })
+    .then(() => { })
+
+module.exports = Pergunta

@@ -2,6 +2,10 @@ body {
     background-color: #ECEFF1;
 }
 
+.navbar {
+    padding: 8px 120px;
+}
+
 .navbar a img {
     width: 170px;
 }
