@@ -18,8 +18,13 @@ textarea {
     resize: none;
 }
 
-.container {
+body .container {
     background-color: white;
+    padding: 0px 0px!important;
+}
+
+.pergunta-container {
+    padding: 0px 20px;
 }
 
 .std-text {

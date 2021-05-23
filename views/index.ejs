@@ -3,20 +3,20 @@
     <body>
         <div class="container">
             <br>
-            <h1>Perguntas recentes</h1>
+            <div class="pergunta-container">
+                <h1>Perguntas recentes</h1>
+            </div>
+            <br>
             <% perguntas.forEach((pergunta)=> { %>
-                <br>
                 <div class="card">
                     <div class="card-body">
                         <h4>
                             <%= pergunta.titulo%>
                         </h4>
                     </div>
-
                     <div class="card-footer">
                         <a href='/pergunta/<%= pergunta.id %>' class="btn btn-success">Responder</a>
                     </div>
-
                 </div>
                 <% }) %>
         </div>

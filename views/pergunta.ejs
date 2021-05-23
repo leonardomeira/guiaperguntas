@@ -1,15 +1,17 @@
 <%- include ('partials/header.ejs') %>
 
-    <body>
         <div class="container">
-            <br>
-            <h1>
-                <%= pergunta.titulo %>
-            </h1>
-            <br>
-            <p>
-                <%= pergunta.descricao %>
-            </p>
+            <div class="pergunta-container">
+                <br>
+                <h1>
+                    <%= pergunta.titulo %>
+                </h1>
+                <br>
+                <p>
+                    <%= pergunta.descricao %>
+                </p>
+            </div>
+            
             <br>
             <div class="card-footer">
                 <h3>Respostas</h3>
@@ -17,8 +19,9 @@
                 <% respostas.forEach(resposta => { %>
                 <p><%= resposta.corpo %></p>
                 <small>Usuário em <%= resposta.createdAt %></small>
-                <% }) %>
+                <br>
                 <hr>
+                <% }) %>
                 <form
                     method="POST"
                     action="/responder">
@@ -30,8 +33,7 @@
                     <textarea
                         class="form-control"
                         name="corpo"
-                        placeholder="Tente adicionar o máximo de detalhes possíveis à sua resposta">
-                    </textarea>
+                        placeholder="Tente adicionar o máximo de detalhes possíveis à sua resposta"></textarea>
                     
                     <input type="hidden"
                         name="pergunta"
@@ -44,6 +46,5 @@
             </div>
             
         </div>
-    </body>
 
     <%- include ('partials/footer.ejs') %>
