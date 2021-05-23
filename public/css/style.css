@@ -17,3 +17,11 @@ body {
 textarea {
     resize: none;
 }
+
+.container {
+    background-color: white;
+}
+
+.std-text {
+    font-size: 18px;
+}
