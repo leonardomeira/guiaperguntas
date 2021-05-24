@@ -15,7 +15,8 @@
 1- Instale as dependências do projeto com *npm install*<br>
 2- Instale o MySQL (Server & Workbench)<br>
 3- Crie uma nova database (schema) no MySQL com o nome *guiaperguntas*<br>
-4- Execute o comando *nodemon index.js* para subir o servidor<br>
+4- Na variável **connection** do arquivo **database.js**, insira a senha de seu root MySQL<br>
+5- Execute o comando *nodemon index.js* para subir o servidor<br>
 <br>
 
 2021 Leonardo Meira - <strong>Licença: MIT</strong>
